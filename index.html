@@ -21,14 +21,38 @@
             background-color: rgb(207, 243, 241);
             color: chartreuse;
         }
+        #image-container {  
+            overflow: hidden; /* 隐藏溢出的内容 */  
+            display: flex; /* 使用Flexbox，使图片居中 */  
+            justify-content: center; /* 水平居中 */  
+            align-items: center; /* 垂直居中 */  
+            background-color: #ffffff; /* 容器背景色，可根据需要修改 */  
+        } 
     </style>
     
 </head>
 <body>
     <h1 id="element" >崔江锐是个🥚啊!</h1>
-    <div style="text-align: center;">  
-        <img src="https://bighorncow.github.io/1732589808830.jpg" width="300" alt="">  
-    </div>
+    <div id="image-container" style="text-align: ;">  
+        <img id="main-image" src="https://bighorncow.github.io/1732589808830.jpg" alt="图片1" width="300">  
+    </div> 
+    
+    <script>  
+        const images = [  
+            "https://bighorncow.github.io/1732589808830.jpg",  
+            "https://bighorncow.github.io/8c8a75024c7cb26418b3e6690362ebd.jpg",  
+            "https://bighorncow.github.io/b48c75de7ad8a2112baa40e1ddfa53d.jpg"  
+        ];  
+        
+        let currentIndex = 0;  
+
+        const mainImage = document.getElementById("main-image");  
+
+        mainImage.addEventListener("click", () => {  
+            currentIndex = (currentIndex + 1) % images.length; // 更新索引并循环  
+            mainImage.src = images[currentIndex]; // 更新图片  
+        });  
+    </script>
     
     <div style="text-align: center;">
         <audio controls autoplay>  
